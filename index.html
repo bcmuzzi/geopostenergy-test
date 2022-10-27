@@ -7,14 +7,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script>
-        const myHeaders = new Headers();
-        myHeaders.append("git-user", "bcmuzzi_git");
+        // const myHeaders = new Headers();
+        // myHeaders.append("git-user", "bcmuzzi_git");
         
-        const requestOptions = {
-          method: 'GET',
-          headers: myHeaders,
-          redirect: 'follow'
-        };
+        // const requestOptions = {
+        //   method: 'GET',
+        //   headers: myHeaders,
+        //   redirect: 'follow'
+        // };
         
         // fetch('https://estagio.geopostenergy.com/WorldCup/GetAllTeams', requestOptions)
         //   .then(response => response.text())
@@ -184,7 +184,7 @@
             matchsArr.push(matchPlay(group[0], group[2]))
             matchsArr.push(matchPlay(group[3], group[1]))
 
-            const matchsTable = new Map();
+            const matchsTable = new Map();  
 
             for (let i = 0; i < matchsArr.length; i++) {
                 
@@ -193,10 +193,11 @@
                 let pointA = 0;
                 let pointB = 0;
 
-                console.log('Teams that are playing:');
-                console.log(`Time A: ${element.teamA.Name} Gols: ${element.teamA.goals}`);
-                console.log('vs');
-                console.log(`Time B: ${element.teamB.Name} Gols: ${element.teamB.goals}`);
+                // console.log('Teams that are playing:');
+                // console.log(`Team A: ${element.teamA.Name} Goals: ${element.teamA.goals}`);
+                // console.log('vs');
+                // console.log(`Team B: ${element.teamB.Name} Goals: ${element.teamB.goals}`);
+                
                 if (element.teamA.goals > element.teamB.goals){
                     pointA += 3
 
@@ -229,27 +230,125 @@
                         goals: element.teamB.goals,
                         points: pointB,
                         name: element.teamB.Name
-                    }
+                    }   
                     matchsTable.set(element.teamB.Token, row)
                 }
             }
-            console.log(matchsTable);
+            return matchsTable;
         }
-        groupMatchPlays(groupA);
-       
+
+        const matchsTableA = groupMatchPlays(groupA);
+        const matchsTableB = groupMatchPlays(groupB);
+        const matchsTableC = groupMatchPlays(groupC);
+        const matchsTableD = groupMatchPlays(groupD);
+        const matchsTableE = groupMatchPlays(groupE);
+        const matchsTableF = groupMatchPlays(groupF);
+        const matchsTableG = groupMatchPlays(groupG);
+        const matchsTableH = groupMatchPlays(groupH);
+        
+        function firstAndSecondPlace(groups) {
+            let firstPlace = ''
+            let pointsFirstPlace = -1
+            let goalsFirstPlace = -1
+            let nameFirst = ''
+
+            groups.forEach((groups, token, arr) => {
+                console.log(groups);
+            if (pointsFirstPlace < groups.points){
+                pointsFirstPlace = groups.points
+                firstPlace = token
+                goalsFirstPlace = groups.goals
+                nameFirst = groups.name
+            } else if (pointsFirstPlace == groups.points && goalsFirstPlace < groups.goals){
+                goalsFirstPlace = groups.goals
+                pointsFirstPlace = groups.points
+                firstPlace = token
+                nameFirst = groups.name
+            }
+            })
+
+            let secondPlace = ''
+            let pointsSecondPlace = -1
+            let goalsSecondPlace = -1
+            let nameSecond = ''
+            
+            groups.forEach((groups, token, arr) => {
+            console.log(token);
+            if (token !== firstPlace){
+            if (pointsSecondPlace < groups.points){
+                pointsSecondPlace = groups.points
+                goalsSecondPlace = groups.goals
+                secondPlace = token
+                nameSecond = groups.name
+            } else if (pointsSecondPlace == groups.points && goalsSecondPlace < groups.goals){
+                pointsSecondPlace = groups.points
+                goalsSecondPlace = groups.goals
+                secondPlace = token
+                nameSecond = groups.name
+            }
+            }
+            })
+            return {firstPlace, secondPlace, nameFirst, nameSecond}
+        }
+        
+        const placesA = firstAndSecondPlace(matchsTableA);
+        const placesB = firstAndSecondPlace(matchsTableB);
+        const placesC = firstAndSecondPlace(matchsTableC);
+        const placesD = firstAndSecondPlace(matchsTableD);
+        const placesE = firstAndSecondPlace(matchsTableE);
+        const placesF = firstAndSecondPlace(matchsTableF);
+        const placesG = firstAndSecondPlace(matchsTableG);
+        const placesH = firstAndSecondPlace(matchsTableH);
+
+        function playOffs(first, second){
+            let teamAGoal = getRandomNumbers(0, 7)
+            let teamBGoal = getRandomNumbers(0, 7)
+            let randomMatch = getRandomNumbers(1, 2)
+            
+            if (teamAGoal > teamBGoal){
+                return first.firstPlace,  first.nameFirst
+            } else if (teamAGoal < teamBGoal){
+                return  second.secondPlace,  second.nameSecond
+            } else if (randomMatch == 1){
+                return first.firstPlace, first.nameFirst
+            } else if (randomMatch == 2){
+                return second.secondPlace, second.nameSecond
+            }
+        }
+
+        function quarterFinals(teamA, teamB){
+            let teamAGoal = getRandomNumbers(0, 7)
+            let teamBGoal = getRandomNumbers(0, 7)
+            let randomMatch = getRandomNumbers(1, 2)
+        }
+
+        const winnerOf16A = playOffs(placesA, placesB);
+        const winnerOf16B = playOffs(placesB, placesA);
+        const winnerOf16C = playOffs(placesC, placesD);
+        const winnerOf16D = playOffs(placesD, placesC);
+        const winnerOf16E = playOffs(placesE, placesF);
+        const winnerOf16F = playOffs(placesF, placesE);
+        const winnerOf16G = playOffs(placesG, placesH);
+        const winnerOf16H = playOffs(placesH, placesG);
+        
+        const winnerOf8AB = playOffs(winnerOf16A, winnerOf16B);
+        const winnerOf8CD = playOffs(winnerOf16C, winnerOf16D);
+        const winnerOf8EF = playOffs(winnerOf16E, winnerOf16F);
+        const winnerOf8GH = playOffs(winnerOf16G, winnerOf16H);
+
         function matchPlay(teamA, teamB){
-            const golsTeamA = getRandomNumbers(0, 7); 
-            const golsTeamB = getRandomNumbers(0, 7);
+            const goalsTeamA = getRandomNumbers(0, 7); 
+            const goalsTeamB = getRandomNumbers(0, 7);
             
             return {
               teamA: {
                 Token: teamA.Token,
-                goals: golsTeamA,
+                goals: goalsTeamA,
                 Name: teamA.Name
               },
               teamB: {
                 Token: teamB.Token,
-                goals: golsTeamB,
+                goals: goalsTeamB,
                 Name: teamB.Name
               }
             }
@@ -260,8 +359,8 @@
             max = Math.floor(max);
             return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
         }
-        
-        
+
+
         </script>
 </head>
 <body>
