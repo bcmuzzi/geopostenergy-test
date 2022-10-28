@@ -1,169 +1,352 @@
-// const myHeaders = new Headers();
-// myHeaders.append("git-user", "bcmuzzi_git");
-
-// const requestOptions = {
-//   method: 'GET',
-//   headers: myHeaders,
-//   redirect: 'follow'
-// };
-
-// // fetch('https://estagio.geopostenergy.com/WorldCup/GetAllTeams', requestOptions)
-// //   .then(response => response.text())
-// //   .then(result => console.log(result))
-// //   .catch(error => console.log('error', error));
-
-
-// const totalTeams =  [
-//   {
-//       Token: "82d9e5fd-edc4-494b-a42b-6f0f8847a77b",
-//       Name: "Qatar"
-//   },
-//   {
-//       Token: "b18e8f55-3477-4d76-bb1a-811132eb25fc",
-//       Name: "Equador"
-//   },
-//   {
-//       Token: "2a8411b8-bacb-444c-91a2-1bf16e37684c",
-//       Name: "Senegal"
-//   },
-//   {
-//       Token: "6ca272b3-48a7-4e11-a2f4-79be4c038c24",
-//       Name: "Holanda"
-//   },
-//   {
-//       Token: "f57dbf70-3534-4096-a6ac-75b9f0fd0868",
-//       Name: "Inglaterra"
-//   },
-//   {
-//       Token: "4a0e878a-e85f-404d-b0ae-3e5bc7b0cabd",
-//       Name: "Iran"
-//   },
-//   {
-//       Token: "cb109aa5-3449-4904-9d54-c65fdadd6f71",
-//       Name: "Estados Unidos"
-//   },
-//   {
-//       Token: "8a228530-c050-4213-ba46-d02b85845ae1",
-//       Name: "País de Gales"
-//   },
-//   {
-//       Token: "97e23115-c6c6-4ac8-aa75-b01332d31424",
-//       Name: "Argentina"
-//   },
-//   {
-//       Token: "23e7c473-9819-4844-9aaa-c6b68d013842",
-//       Name: "Arábia Saudita"
-//   },
-//   {
-//       Token: "744c7a0a-d326-481d-b8de-8c91f6990295",
-//       Name: "México"
-//   },
-//   {
-//       Token: "b387e0f8-4a34-482a-abdb-7357998c2873",
-//       Name: "Polônia"
-//   },
-//   {
-//       Token: "1946b14d-c2f6-4b3a-baeb-fe60b3d1e030",
-//       Name: "França"
-//   },
-//   {
-//       Token: "46cae0a0-d78a-42fb-9584-b78e374a5c3e",
-//       Name: "Austrália"
-//   },
-//   {
-//       Token: "1159bb76-4d77-4fa8-908b-a7334325208b",
-//       Name: "Dinamarca"
-//   },
-//   {
-//       Token: "9721785f-48f0-4c1e-8b8e-5854a54e109f",
-//       Name: "Tunísia"
-//   },
-//   {
-//       Token: "985b3c37-4111-402c-bf2c-5fad6b976940",
-//       Name: "Espanha"
-//   },
-//   {
-//       Token: "e8f73110-8929-4e30-b711-76472014af79",
-//       Name: "Costa Rica"
-//   },
-//   {
-//       Token: "f5a74a52-f8c7-4da0-9a7d-848afa58366c",
-//       Name: "Alemanha"
-//   },
-//   {
-//       Token: "bbb95af0-5c21-4494-b55f-b37e785e16a7",
-//       Name: "Japão"
-//   },
-//   {
-//       Token: "794019b5-c845-4b39-9658-a83fda947e85",
-//       Name: "Bélgica"
-//   },
-//   {
-//       Token: "21982426-7a9c-4a51-953e-4978fe02d7da",
-//       Name: "Canadá"
-//   },
-//   {
-//       Token: "135e56ab-037b-40b2-bc8e-1941b8b35e78",
-//       Name: "Marrocos"
-//   },
-//   {
-//       Token: "c8492f9b-c230-4da0-88c9-6d7f0b901cd5",
-//       Name: "Croácia"
-//   },
-//   {
-//       Token: "9e0921bc-e658-4f10-8bf0-f6ee5b4abb30",
-//       Name: "Brasil"
-//   },
-//   {
-//       Token: "4c4c57da-60cd-4732-ba7c-51dc6e11d627",
-//       Name: "Sérvia"
-//   },
-//   {
-//       Token: "7c863f8d-fbb8-4f42-a9d3-9c3c6eb96d6c",
-//       Name: "Suiça"
-//   },
-//   {
-//       Token: "54771621-dfa0-4d16-bfdc-c16cfb024219",
-//       Name: "Camarões"
-//   },
-//   {
-//       Token: "c7b3cae2-7a0d-4114-b0dc-edfc38908bad",
-//       Name: "Portugal"
-//   },
-//   {
-//       Token: "ca68d96d-e626-4d35-bf5e-eb3afc9962d8",
-//       Name: "Gana"
-//   },
-//   {
-//       Token: "6b8b0ee1-0609-498b-a91b-de0b31d83a3c",
-//       Name: "Uruguai"
-//   },
-//   {
-//       Token: "11b7d570-adae-40e6-b51b-20c6bbbd837d",
-//       Name: "Coreia do Sul"
-//   }]
-
-// totalTeams.sort();
-
-// function matchPlay(tokenA, tokenB){
-//     const teamA = getRandomGols(0, 7); 
-//     const teamB = getRandomGols(0, 7);
-
-//     return {
-//       teamA: {
-//         token: tokenA,
-//         goals: teamA
-//       },
-//       teamB: {
-//         token: tokenB,
-//         goals: teamB
-//       }
-//     }
-// }
-// function getRandomGols(min, max) {
-//     min = Math.ceil(min);
-//     max = Math.floor(max);
-//     return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
-// }
-
-// const matchFinished = matchPlay();
+// // const myHeaders = new Headers();
+//         // myHeaders.append("git-user", "bcmuzzi_git");
+        
+//         // const requestOptions = {
+//         //   method: 'GET',
+//         //   headers: myHeaders,
+//         //   redirect: 'follow'
+//         // };
+        
+//         // fetch('https://estagio.geopostenergy.com/WorldCup/GetAllTeams', requestOptions)
+//         //   .then(response => response.text())
+//         //   .then(result => console.log(result))
+//         //   .catch(error => console.log('error', error));
+        
+        
+//         const totalTeams =  [
+//             {
+//                 Token: "82d9e5fd-edc4-494b-a42b-6f0f8847a77b",
+//                 Name: "Qatar"
+//             },
+//             {
+//                 Token: "b18e8f55-3477-4d76-bb1a-811132eb25fc",
+//                 Name: "Equador"
+//             },
+//             {
+//                 Token: "2a8411b8-bacb-444c-91a2-1bf16e37684c",
+//                 Name: "Senegal"
+//             },
+//             {
+//                 Token: "6ca272b3-48a7-4e11-a2f4-79be4c038c24",
+//                 Name: "Holanda"
+//             },
+//             {
+//                 Token: "f57dbf70-3534-4096-a6ac-75b9f0fd0868",
+//                 Name: "Inglaterra"
+//             },
+//             {
+//                 Token: "4a0e878a-e85f-404d-b0ae-3e5bc7b0cabd",
+//                 Name: "Iran"
+//             },
+//             {
+//                 Token: "cb109aa5-3449-4904-9d54-c65fdadd6f71",
+//                 Name: "Estados Unidos"
+//             },
+//             {
+//                 Token: "8a228530-c050-4213-ba46-d02b85845ae1",
+//                 Name: "País de Gales"
+//             },
+//             {
+//                 Token: "97e23115-c6c6-4ac8-aa75-b01332d31424",
+//                 Name: "Argentina"
+//             },
+//             {
+//                 Token: "23e7c473-9819-4844-9aaa-c6b68d013842",
+//                 Name: "Arábia Saudita"
+//             },
+//             {
+//                 Token: "744c7a0a-d326-481d-b8de-8c91f6990295",
+//                 Name: "México"
+//             },
+//             {
+//                 Token: "b387e0f8-4a34-482a-abdb-7357998c2873",
+//                 Name: "Polônia"
+//             },
+//             {
+//                 Token: "1946b14d-c2f6-4b3a-baeb-fe60b3d1e030",
+//                 Name: "França"
+//             },
+//             {
+//                 Token: "46cae0a0-d78a-42fb-9584-b78e374a5c3e",
+//                 Name: "Austrália"
+//             },
+//             {
+//                 Token: "1159bb76-4d77-4fa8-908b-a7334325208b",
+//                 Name: "Dinamarca"
+//             },
+//             {
+//                 Token: "9721785f-48f0-4c1e-8b8e-5854a54e109f",
+//                 Name: "Tunísia"
+//             },
+//             {
+//                 Token: "985b3c37-4111-402c-bf2c-5fad6b976940",
+//                 Name: "Espanha"
+//             },
+//             {
+//                 Token: "e8f73110-8929-4e30-b711-76472014af79",
+//                 Name: "Costa Rica"
+//             },
+//             {
+//                 Token: "f5a74a52-f8c7-4da0-9a7d-848afa58366c",
+//                 Name: "Alemanha"
+//             },
+//             {
+//                 Token: "bbb95af0-5c21-4494-b55f-b37e785e16a7",
+//                 Name: "Japão"
+//             },
+//             {
+//                 Token: "794019b5-c845-4b39-9658-a83fda947e85",
+//                 Name: "Bélgica"
+//             },
+//             {
+//                 Token: "21982426-7a9c-4a51-953e-4978fe02d7da",
+//                 Name: "Canadá"
+//             },
+//             {
+//                 Token: "135e56ab-037b-40b2-bc8e-1941b8b35e78",
+//                 Name: "Marrocos"
+//             },
+//             {
+//                 Token: "c8492f9b-c230-4da0-88c9-6d7f0b901cd5",
+//                 Name: "Croácia"
+//             },
+//             {
+//                 Token: "9e0921bc-e658-4f10-8bf0-f6ee5b4abb30",
+//                 Name: "Brasil"
+//             },
+//             {
+//                 Token: "4c4c57da-60cd-4732-ba7c-51dc6e11d627",
+//                 Name: "Sérvia"
+//             },
+//             {
+//                 Token: "7c863f8d-fbb8-4f42-a9d3-9c3c6eb96d6c",
+//                 Name: "Suiça"
+//             },
+//             {
+//                 Token: "54771621-dfa0-4d16-bfdc-c16cfb024219",
+//                 Name: "Camarões"
+//             },
+//             {
+//                 Token: "c7b3cae2-7a0d-4114-b0dc-edfc38908bad",
+//                 Name: "Portugal"
+//             },
+//             {
+//                 Token: "ca68d96d-e626-4d35-bf5e-eb3afc9962d8",
+//                 Name: "Gana"
+//             },
+//             {
+//                 Token: "6b8b0ee1-0609-498b-a91b-de0b31d83a3c",
+//                 Name: "Uruguai"
+//             },
+//             {
+//                 Token: "11b7d570-adae-40e6-b51b-20c6bbbd837d",
+//                 Name: "Coreia do Sul"
+//             }]
+          
+//           totalTeams.sort((a, b) => {
+//               const teamA = a.Token.toLocaleLowerCase();
+//               const teamB = b.Token.toLocaleLowerCase(); 
+  
+//               if (teamA < teamB) {
+//                   return -1 * getRandomNumbers(-7, 7); 
+//               }
+//               if (teamA > teamB) {
+//                   return 1 * getRandomNumbers(-7, 7); 
+//               }
+//               return 0;
+//           });
+          
+//           const groupA = totalTeams.slice(0, 4)
+//           const groupB = totalTeams.slice(4, 8)
+//           const groupC = totalTeams.slice(8, 12)
+//           const groupD = totalTeams.slice(12, 16)
+//           const groupE = totalTeams.slice(16, 20)
+//           const groupF = totalTeams.slice(20, 24)
+//           const groupG = totalTeams.slice(24, 28)
+//           const groupH = totalTeams.slice(28, 32) 
+  
+//           function groupMatchPlays(group){
+//               const matchsArr = []
+              
+//               matchsArr.push(matchPlay(group[0], group[1]))
+//               matchsArr.push(matchPlay(group[2], group[3]))
+//               matchsArr.push(matchPlay(group[0], group[3]))
+//               matchsArr.push(matchPlay(group[1], group[2]))
+//               matchsArr.push(matchPlay(group[0], group[2]))
+//               matchsArr.push(matchPlay(group[3], group[1]))
+  
+//               const matchsTable = new Map();  
+  
+//               for (let i = 0; i < matchsArr.length; i++) {
+                  
+//                   const element = matchsArr[i]
+                  
+//                   let pointA = 0;
+//                   let pointB = 0;
+  
+//                   // console.log('Teams that are playing:');
+//                   // console.log(`Team A: ${element.teamA.Name} Goals: ${element.teamA.goals}`);
+//                   // console.log('vs');
+//                   // console.log(`Team B: ${element.teamB.Name} Goals: ${element.teamB.goals}`);
+                  
+//                   if (element.teamA.goals > element.teamB.goals){
+//                       pointA += 3
+  
+//                   } else if (element.teamA.goals < element.teamB.goals){
+//                       pointB += 3
+//                   } else {
+//                       pointA += 1
+//                       pointB += 1
+//                   }
+  
+//                   if (matchsTable.has(element.teamA.Token)){
+//                       const row = matchsTable.get(element.teamA.Token)
+//                       row.goals += element.teamA.goals
+//                       row.points += pointA
+//                   } else {
+//                       const row = {
+//                           goals: element.teamA.goals,
+//                           points: pointA,
+//                           name: element.teamA.Name
+//                       }
+//                       matchsTable.set(element.teamA.Token, row)
+//                   }
+  
+//                   if (matchsTable.has(element.teamB.Token)){
+//                       const row = matchsTable.get(element.teamB.Token)
+//                       row.goals += element.teamB.goals
+//                       row.points += pointB
+//                   } else {
+//                       const row = {
+//                           goals: element.teamB.goals,
+//                           points: pointB,
+//                           name: element.teamB.Name
+//                       }   
+//                       matchsTable.set(element.teamB.Token, row)
+//                   }
+//               }
+//               return matchsTable;
+//           }
+  
+//           const matchsTableA = groupMatchPlays(groupA);
+//           const matchsTableB = groupMatchPlays(groupB);
+//           const matchsTableC = groupMatchPlays(groupC);
+//           const matchsTableD = groupMatchPlays(groupD);
+//           const matchsTableE = groupMatchPlays(groupE);
+//           const matchsTableF = groupMatchPlays(groupF);
+//           const matchsTableG = groupMatchPlays(groupG);
+//           const matchsTableH = groupMatchPlays(groupH);
+          
+//           function firstAndSecondPlace(groups) {
+//               let firstPlace = ''
+//               let pointsFirstPlace = -1
+//               let goalsFirstPlace = -1
+//               let nameFirst = ''
+  
+//               groups.forEach((groups, token, arr) => {
+//                   console.log(groups);
+//               if (pointsFirstPlace < groups.points){
+//                   pointsFirstPlace = groups.points
+//                   firstPlace = token
+//                   goalsFirstPlace = groups.goals
+//                   nameFirst = groups.name
+//               } else if (pointsFirstPlace == groups.points && goalsFirstPlace < groups.goals){
+//                   goalsFirstPlace = groups.goals
+//                   pointsFirstPlace = groups.points
+//                   firstPlace = token
+//                   nameFirst = groups.name
+//               }
+//               })
+  
+//               let secondPlace = ''
+//               let pointsSecondPlace = -1
+//               let goalsSecondPlace = -1
+//               let nameSecond = ''
+              
+//               groups.forEach((groups, token, arr) => {
+//               console.log(token);
+//               if (token !== firstPlace){
+//               if (pointsSecondPlace < groups.points){
+//                   pointsSecondPlace = groups.points
+//                   goalsSecondPlace = groups.goals
+//                   secondPlace = token
+//                   nameSecond = groups.name
+//               } else if (pointsSecondPlace == groups.points && goalsSecondPlace < groups.goals){
+//                   pointsSecondPlace = groups.points
+//                   goalsSecondPlace = groups.goals
+//                   secondPlace = token
+//                   nameSecond = groups.name
+//               }
+//               }
+//               })
+//               return {firstPlace, secondPlace, nameFirst, nameSecond}
+//           }
+          
+//           const placesA = firstAndSecondPlace(matchsTableA);
+//           const placesB = firstAndSecondPlace(matchsTableB);
+//           const placesC = firstAndSecondPlace(matchsTableC);
+//           const placesD = firstAndSecondPlace(matchsTableD);
+//           const placesE = firstAndSecondPlace(matchsTableE);
+//           const placesF = firstAndSecondPlace(matchsTableF);
+//           const placesG = firstAndSecondPlace(matchsTableG);
+//           const placesH = firstAndSecondPlace(matchsTableH);
+  
+//           function playOffs(first, second){
+//               let teamAGoal = getRandomNumbers(0, 7)
+//               let teamBGoal = getRandomNumbers(0, 7)
+//               let randomMatch = getRandomNumbers(1, 2)
+              
+//               if (teamAGoal > teamBGoal){
+//                   return first.firstPlace,  first.nameFirst
+//               } else if (teamAGoal < teamBGoal){
+//                   return  second.secondPlace,  second.nameSecond
+//               } else if (randomMatch == 1){
+//                   return first.firstPlace, first.nameFirst
+//               } else if (randomMatch == 2){
+//                   return second.secondPlace, second.nameSecond
+//               }
+//           }
+  
+//           function quarterFinals(teamA, teamB){
+//               let teamAGoal = getRandomNumbers(0, 7)
+//               let teamBGoal = getRandomNumbers(0, 7)
+//               let randomMatch = getRandomNumbers(1, 2)
+//           }
+  
+//           const winnerOf16A = playOffs(placesA, placesB);
+//           const winnerOf16B = playOffs(placesB, placesA);
+//           const winnerOf16C = playOffs(placesC, placesD);
+//           const winnerOf16D = playOffs(placesD, placesC);
+//           const winnerOf16E = playOffs(placesE, placesF);
+//           const winnerOf16F = playOffs(placesF, placesE);
+//           const winnerOf16G = playOffs(placesG, placesH);
+//           const winnerOf16H = playOffs(placesH, placesG);
+          
+//           const winnerOf8AB = playOffs(winnerOf16A, winnerOf16B);
+//           const winnerOf8CD = playOffs(winnerOf16C, winnerOf16D);
+//           const winnerOf8EF = playOffs(winnerOf16E, winnerOf16F);
+//           const winnerOf8GH = playOffs(winnerOf16G, winnerOf16H);
+  
+//           function matchPlay(teamA, teamB){
+//               const goalsTeamA = getRandomNumbers(0, 7); 
+//               const goalsTeamB = getRandomNumbers(0, 7);
+              
+//               return {
+//                 teamA: {
+//                   Token: teamA.Token,
+//                   goals: goalsTeamA,
+//                   Name: teamA.Name
+//                 },
+//                 teamB: {
+//                   Token: teamB.Token,
+//                   goals: goalsTeamB,
+//                   Name: teamB.Name
+//                 }
+//               }
+//           }
+          
+//           function getRandomNumbers(min, max) {
+//               min = Math.ceil(min);
+//               max = Math.floor(max);
+//               return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+//           }
